@@ -305,7 +305,7 @@ $('.data').on("click", function(e){
 		     }
 		});*/
 
-		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device}));
+		var folder = 'https://github.com/ubc-haptipedia/ubc-haptipedia.github.io/tree/master/' + String(d3.select(this).data().map(function(d){return d.Device}));
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
 
