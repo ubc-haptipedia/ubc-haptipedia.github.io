@@ -278,7 +278,7 @@ $('.data').on("click", function(e){
 		//Checking if image url is valid or not
 		
         var imageTemp = [];
-        var imageData = [];
+        var count = 1;
 
         for(var i=0; i<15; i++){
         	imageTemp[i] = folder + '/Figure' + (i+1) + '-1.png';
@@ -299,10 +299,11 @@ $('.data').on("click", function(e){
 			//Show the result
 			if (exists == true) 
 			{ 
-				imageData.push(imageTemp[i]);
-				console.log(imageData[i]);
-				$('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
-				$('<div class="carousel-item"><img src="'+imageData[i]+'"></div>').appendTo('.carousel-inner');
+				
+				
+				$('<li data-target="#carouselExampleIndicators" data-slide-to="'+count+'"></li>').appendTo('.carousel-indicators');
+				$('<div class="carousel-item"><img src="'+imageTemp[i]+'"></div>').appendTo('.carousel-inner');
+				count++;
 				$('#carouselExampleIndicators').carousel();
 				$('.carousel-item').eq(0).addClass('active');
 				$('.carousel-indicators > li').eq(0).addClass('active');
