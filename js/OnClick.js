@@ -277,7 +277,7 @@ $('.data').on("click", function(e){
 		
 		// Check if url exists or not
 		function isUrlExists(url, cb){
-		    jQuery.ajax({
+		    $.ajax({
 			url:      url,
 			dataType: 'text',
 			type:     'GET',
