@@ -237,7 +237,7 @@ $('.data').on("click", function(e){
 	}
 
 	else{
-		console.log('test-3');
+		console.log('test-4');
 		// Get the modal
 		  var modal = document.getElementById('myModal');
 
@@ -270,54 +270,55 @@ $('.data').on("click", function(e){
 		$('.modal-header h2').html(String(d3.select(this).data().map(function(d){return d.Device})))
 
 		
-		var found = false;
-		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device}));
+		
+		var folder = 'http://localhost:3000/' + String(d3.select(this).data().map(function(d){return d.Device}));
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
+
+		//Checking if image url is valid or not
 		
-		// Check if url exists or not
-		function imageExists(url, callback) {
-		    var img = new Image();
-		    img.onload = function() { callback(true); };
-		    img.onerror = function() { callback(false); };
-		    img.src = url;
-		  }
+        var imageTemp = [];
+        var imageData = [];
 
+        for(var i=0; i<15; i++){
+        	imageTemp[i] = folder + '/Figure' + (i+1) + '-1.png';
 
-		  function validateImageURL(imageUrl)
-		    {
+        }
 
-		      //var imageUrl = 'http://images.gta-travel.com/HH/Images/AA/SYD/SYD-AVI-2.jpg';
-
-		      imageExists(imageUrl, function(exists) {
-			//Show the result
-			found = exists;
-		      });
-
-	        }
-
-		
-        	for(var i=1; i<16; i++){
-
-			var filename = folder + '/Figure' + i + '-1.png';
-			
-			validateImageURL(filename);
-			if(found){
-	        	$('<li data-target="#carouselExampleIndicators" data-slide-to=" '+ i +' "></li>').appendTo('.carousel-indicators');
-				$('<div class="carousel-item"><img src="'+ filename +'"></div>').appendTo('.carousel-inner');
-			}
-
+        function imageExists(url, callback) {
+			var img = new Image();
+			img.onload = function () { callback(true); };
+			img.onerror = function () { callback(false); };
+			img.src = url;
 		}
 		
-		
 
-		
-		$('#carouselExampleIndicators').carousel();
-		
-		
+		function imageurlcheck(i) 
+		{
+			imageExists(imageTemp[i], function (exists) {
+			//Show the result
+			if (exists == true) 
+			{ 
+				imageData.push(imageTemp[i]);
+				console.log(imageData[i]);
+				$('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
+				$('<div class="carousel-item"><img src="'+imageData[i]+'"></div>').appendTo('.carousel-inner');
+				$('#carouselExampleIndicators').carousel();
+				$('.carousel-item').eq(0).addClass('active');
+				$('.carousel-indicators > li').eq(0).addClass('active');
+				console.clear();
+			}
+			
+			
+			
+			});
 
-		$('.carousel-item').eq(0).addClass('active');
-		$('.carousel-indicators > li').eq(0).addClass('active');
+		}
+
+		for (var i = 0; i < 15; i++)
+		{ 
+			imageurlcheck(i);
+		} 
 	}
 
 });
