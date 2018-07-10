@@ -237,7 +237,7 @@ $('.data').on("click", function(e){
 	}
 
 	else{
-		console.log('test-2');
+		console.log('test-3');
 		// Get the modal
 		  var modal = document.getElementById('myModal');
 
@@ -270,7 +270,7 @@ $('.data').on("click", function(e){
 		$('.modal-header h2').html(String(d3.select(this).data().map(function(d){return d.Device})))
 
 		
-
+		var found = false;
 		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device}));
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
@@ -291,7 +291,7 @@ $('.data').on("click", function(e){
 
 		      imageExists(imageUrl, function(exists) {
 			//Show the result
-			alert('Fileexists=' + exists);
+			found = exists;
 		      });
 
 	        }
@@ -300,7 +300,7 @@ $('.data').on("click", function(e){
         	for(var i=1; i<16; i++){
 
 			var filename = folder + '/Figure' + i + '-1.png';
-			var found = false;
+			
 			validateImageURL(filename);
 			if(found){
 	        	$('<li data-target="#carouselExampleIndicators" data-slide-to=" '+ i +' "></li>').appendTo('.carousel-indicators');
