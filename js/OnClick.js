@@ -1,15 +1,10 @@
 
-
-window.onload = function(){
-
-
-
 var storeClickArray = [];
 var storeClickArrayCount = [];
 var flag = 0;
 var storeClick = 0;
 var tempDevice;
-$('.data').on("click", function(e){
+$('body').on('click', '.data', function(e){
 	if(e.metaKey || e.ctrlKey){
 		
 		var clickData = [];
@@ -445,4 +440,3 @@ var mouseX;
 	});
 
 
-}
