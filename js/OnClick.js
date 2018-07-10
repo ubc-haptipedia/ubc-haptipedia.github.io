@@ -271,7 +271,7 @@ $('.data').on("click", function(e){
 
 		
 		
-		var folder = 'http://localhost:3000/' + String(d3.select(this).data().map(function(d){return d.Device}));
+		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device}));
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
 
