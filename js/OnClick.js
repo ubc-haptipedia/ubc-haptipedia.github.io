@@ -248,7 +248,7 @@ $('.data').on("click", function(e){
 		
 	  		var filename = 'https://ubc-haptipedia.github.io/'+ String(d3.select(this).data().map(function(d){return d.Device})) + '/Figure6-1.png';
 	  		console.log('filename is:'+filename);
-	  		$('<li data-target="#carouselExampleIndicators" data-slide-to="'+1+'"></li>').appendTo('.carousel-indicators');
+	  		$('<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>').appendTo('.carousel-indicators');
 			$('<div class="carousel-item"><img src="'+filename+'"></div>').appendTo('.carousel-inner');
 		
 	   
