@@ -237,7 +237,7 @@ $('.data').on("click", function(e){
 	}
 
 	else{
-
+		console.log('test-2');
 		// Get the modal
 		  var modal = document.getElementById('myModal');
 
@@ -276,32 +276,32 @@ $('.data').on("click", function(e){
 		$('.carousel-indicators').html('');
 		
 		// Check if url exists or not
-		function isUrlExists(url, cb){
-		    $.ajax({
-			url:      url,
-			dataType: 'text',
-			type:     'GET',
-			complete:  function(xhr){
-			    if(typeof cb === 'function')
-			       cb.apply(this, [xhr.status]);
-			}
-		    });
-		}
+		function imageExists(url, callback) {
+		    var img = new Image();
+		    img.onload = function() { callback(true); };
+		    img.onerror = function() { callback(false); };
+		    img.src = url;
+		  }
 
-		console.log('test-1');
+
+		  function validateImageURL(imageUrl)
+		    {
+
+		      //var imageUrl = 'http://images.gta-travel.com/HH/Images/AA/SYD/SYD-AVI-2.jpg';
+
+		      imageExists(imageUrl, function(exists) {
+			//Show the result
+			alert('Fileexists=' + exists);
+		      });
+
+	        }
+
+		
         	for(var i=1; i<16; i++){
 
 			var filename = folder + '/Figure' + i + '-1.png';
 			var found = false;
-			isUrlExists('URL', function(status){
-			    if(status === 200){
-			       found = true;
-			    }
-			    else if(status === 404){
-			       found = false;
-			    }
-			});
-
+			validateImageURL(filename);
 			if(found){
 	        	$('<li data-target="#carouselExampleIndicators" data-slide-to=" '+ i +' "></li>').appendTo('.carousel-indicators');
 				$('<div class="carousel-item"><img src="'+ filename +'"></div>').appendTo('.carousel-inner');
