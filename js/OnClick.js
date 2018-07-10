@@ -1,15 +1,29 @@
 
+
+var detectSelection = false;
+//var name = window.detectSelection;
+
+console.log('loaded1');
+
+
 var storeClickArray = [];
 var storeClickArrayCount = [];
 var flag = 0;
 var storeClick = 0;
 var tempDevice;
-$('body').on('click', '.data', function(e){
+
+
+$('body').on("click", '.data', function(e){
+	console.log('clicked');
+
+
+
 	if(e.metaKey || e.ctrlKey){
 		
 		var clickData = [];
 		var deviceName = [];
-
+		detectSelection = true;
+		
 
 		if(storeClick > 0){
 			
@@ -121,110 +135,120 @@ $('body').on('click', '.data', function(e){
 
 
 
+		console.log('storeClick= ' + storeClick);
 
-		for(var i=0; i<storeClick; i++){
-			
-			
+		if(storeClick!=0){
 
-		clickData[i] = storeClickArray[i].data();
+			for(var i=0; i<storeClick; i++){
+				
+				
 
-
-		clickData[i].forEach(function(d){
-			deviceName[i] = d.Device;
-		});
+			clickData[i] = storeClickArray[i].data();
 
 
-
-		//d3.selectAll('.data').filter(function(d){return d.Device == deviceName[i];}).style('opacity', 1);
-
-		d3.selectAll('.point')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			clickData[i].forEach(function(d){
+				deviceName[i] = d.Device;
+			});
 
 
-		d3.selectAll('.point2')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+
+			//d3.selectAll('.data').filter(function(d){return d.Device == deviceName[i];}).style('opacity', 1);
+
+			d3.selectAll('.point')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
 
-		d3.selectAll('.point3')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point4')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1); 
-
-		d3.selectAll('.point5')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point61')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point62')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point63')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point64')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point65')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-
-		d3.selectAll('.point66')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point2')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
 
-		d3.selectAll('.point71')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point3')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point72')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point4')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1); 
 
-		d3.selectAll('.point73')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point5')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point74')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point61')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point75')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point62')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point81')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point63')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point82')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point64')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point83')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point65')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point84')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
+			d3.selectAll('.point66')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
 
-		d3.selectAll('.point85')
-			.filter(function(d){return d.Device == deviceName[i];})
-			.style('opacity', 1);
-			
 
+			d3.selectAll('.point71')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point72')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point73')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point74')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point75')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point81')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point82')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point83')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point84')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+
+			d3.selectAll('.point85')
+				.filter(function(d){return d.Device == deviceName[i];})
+				.style('opacity', 1);
+				
+
+			}
+
+		}
+
+		else{
+			d3.selectAll('.data').style('opacity', 1);
+		    detectSelection = false;
 		}
 
 
@@ -232,7 +256,9 @@ $('body').on('click', '.data', function(e){
 	}
 
 	else{
+
 		console.log('test-4');
+		
 		// Get the modal
 		  var modal = document.getElementById('myModal');
 
@@ -273,7 +299,8 @@ $('body').on('click', '.data', function(e){
 		//Checking if image url is valid or not
 		
         var imageTemp = [];
-        var count = 1;
+        
+        var count=1;
 
         for(var i=0; i<15; i++){
         	imageTemp[i] = folder + '/Figure' + (i+1) + '-1.png';
@@ -295,7 +322,7 @@ $('body').on('click', '.data', function(e){
 			if (exists == true) 
 			{ 
 				
-				
+				//console.log(imageData[i]);
 				$('<li data-target="#carouselExampleIndicators" data-slide-to="'+count+'"></li>').appendTo('.carousel-indicators');
 				$('<div class="carousel-item"><img src="'+imageTemp[i]+'"></div>').appendTo('.carousel-inner');
 				count++;
@@ -315,6 +342,12 @@ $('body').on('click', '.data', function(e){
 		{ 
 			imageurlcheck(i);
 		} 
+
+		
+		
+		
+
+		
 	}
 
 });
@@ -438,5 +471,6 @@ var mouseX;
 
 		$('.repairability-def').hide();
 	});
+
 
 
