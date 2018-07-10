@@ -1,7 +1,10 @@
 $('.js_CheckAll-checkbox').on('mouseover', function(){
-
+console.log('mouseover');
+if(detectSelection != true){
+	
 	var getID;
 	var getValue;
+	var device;
 	var NumOfDevices = 45;
 
 	getID = parseInt(this.id.substring(2,3));
@@ -9,7 +12,7 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 	getValue = $('#' + this.id).val();
 	//console.log(getValue);
 
-	$('.data').attr('opacity', 0.15);
+	d3.selectAll('.data').style('opacity', 0.15);
 	
 	
 	if(getID != 5){
@@ -17,7 +20,10 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 
 			if($('.point').eq(i).attr('id').substring(getID+1, getID+2) == getValue){
 				//console.log(i);
-				$('.point').eq(i).attr('opacity', 1);
+							
+				device = String(d3.selectAll('.point').data().map(function(d){return d.Device})[i]);
+				d3.selectAll('.data').filter(function(d){return d.Device == device}).style('opacity', 1);
+				/*$('.point').eq(i).attr('opacity', 1);
 				$('.point2').eq(i).attr('opacity', 1);
 				$('.point3').eq(i).attr('opacity', 1);
 				$('.point4').eq(i).attr('opacity', 1);
@@ -41,7 +47,7 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 				$('.point83').eq(i).attr('opacity', 1);
 				$('.point84').eq(i).attr('opacity', 1);
 				$('.point85').eq(i).attr('opacity', 1);
-				$('.point86').eq(i).attr('opacity', 1);
+				$('.point86').eq(i).attr('opacity', 1);*/
 
 			}
 
@@ -54,7 +60,9 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 
 			if($('.point').eq(i).attr('id').substring(getID+1, getID+3) == getValue){
 				//console.log(i);
-				$('.point').eq(i).attr('opacity', 1);
+				device = String(d3.selectAll('.point').data().map(function(d){return d.Device})[i]);
+				d3.selectAll('.data').filter(function(d){return d.Device == device;}).style('opacity', 1);
+				/*$('.point').eq(i).attr('opacity', 1);
 				$('.point2').eq(i).attr('opacity', 1);
 				$('.point3').eq(i).attr('opacity', 1);
 				$('.point4').eq(i).attr('opacity', 1);
@@ -78,7 +86,7 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 				$('.point83').eq(i).attr('opacity', 1);
 				$('.point84').eq(i).attr('opacity', 1);
 				$('.point85').eq(i).attr('opacity', 1);
-				$('.point86').eq(i).attr('opacity', 1);
+				$('.point86').eq(i).attr('opacity', 1);*/
 
 			}
 
@@ -87,7 +95,7 @@ $('.js_CheckAll-checkbox').on('mouseover', function(){
 	}
 
 	
-	
+}	
 
 
 
@@ -97,8 +105,8 @@ $('.js_CheckAll-checkbox').on('mouseout', function(){
 
 
 	console.log('mouseout');
-
-	$('.data').attr('opacity', 1);
-	
+	if(detectSelection != true){
+		d3.selectAll('.data').style('opacity', 1);
+	}
 
 });
