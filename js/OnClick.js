@@ -1,7 +1,7 @@
 
 
 window.onload = function(){
-console.log('loaded');
+
 
 
 var storeClickArray = [];
@@ -9,9 +9,7 @@ var storeClickArrayCount = [];
 var flag = 0;
 var storeClick = 0;
 var tempDevice;
-
 $('.data').on("click", function(e){
-	console.log('clicked');
 	if(e.metaKey || e.ctrlKey){
 		
 		var clickData = [];
@@ -240,7 +238,6 @@ $('.data').on("click", function(e){
 
 	else{
 
-<<<<<<< HEAD
 		 
 
 		 $('.modal-header h2').html(String(d3.select(this).data().map(function(d){return d.Device})))
@@ -259,18 +256,6 @@ $('.data').on("click", function(e){
 		
 		$('#carouselExampleIndicators').carousel();
 		
-=======
-
-		$('.carousel-inner').html('');
-		$('.carousel-indicators').html('');
-		$('#carouselExampleIndicators').carousel();
-		
-		
-	  		var filename = 'https://ubc-haptipedia.github.io/'+ String(d3.select(this).data().map(function(d){return d.Device})) + '/Figure6-1.png';
-	  		console.log('filename is:'+filename);
-	  		$('<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>').appendTo('.carousel-indicators');
-			$('<div class="carousel-item"><img src="'+filename+'"></div>').appendTo('.carousel-inner');
->>>>>>> bafbcff0af07cd48b9c12707963a676be8e19c35
 		
 
 		$('.carousel-item').eq(0).addClass('active');
