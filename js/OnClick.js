@@ -238,107 +238,25 @@ $('.data').on("click", function(e){
 
 	else{
 
-		  // Get the modal
-		  var modal = document.getElementById('myModal');
-
-		  // Get the button that opens the modal
-		  
-
-		  // Get the <span> element that closes the modal
-		  var span = document.getElementsByClassName("close")[0];
-
-		  // When the user clicks the button, open the modal 
 		 
-	      modal.style.display = "block";
-		  
-
-		  // When the user clicks on <span> (x), close the modal
-		  span.onclick = function() {
-		      modal.style.display = "none";
-		  }
-
-		  // When the user clicks anywhere outside of the modal, close it
-		  window.onclick = function(event) {
-		      if (event.target == modal) {
-		          modal.style.display = "none";
-		      }
-		  }
 
 		 $('.modal-header h2').html(String(d3.select(this).data().map(function(d){return d.Device})))
 
-		/*var m = []
-		var testFolder;
 		
-		testFolder = './' + String(d3.select(this).data().map(function(d){return d.Device})) + '/';
-		console.log(testFolder);
-		console.log(m);
-		
-		var url = window.location.href;     // Returns full URL
-		console.log(url)
-		var params = url.split('/');
-		console.log('params= ' + params);
-		var url = 'http://' + params[2] + '/'
-		console.log('url = ' + url);
-		/*var folder = params[1]
-		console.log('folder= ' + folder);
-		if(folder){
-			testFolder = folder+'/'
-			console.log('param is:'+ testFolder)
-		}*/
 
-		/*getpathstr = url + 'readfigures/'+testFolder;
-		console.log(getpathstr)
-
-
-		$.ajax({
-		     async: false,
-		     type: 'GET',
-		     url: getpathstr,
-		     success: function(data) {
-		          //callback
-
-		          var ashu = data;
-		          console.log('ashu = ' + ashu);
-		          m = ashu;
-		          ashu = [];
-		          
-		     }
-		});*/
-
-		var folder = 'https://github.com/ubc-haptipedia/ubc-haptipedia.github.io/tree/master/' + String(d3.select(this).data().map(function(d){return d.Device}));
+		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device})) + '/Figure1-1.png';
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
 
-		$.ajax({
-		    url : folder,
-		    success: function (data) {
-		        $(data).find("a").attr("href", function (i, val) {
-		            if( val.match(/\.(png)$/) ) { 
-		                //$("body").append( "<img src='"+ folder + val +"'>" );
-		                $('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
-						$('<div class="carousel-item"><img src="'+ folder + val +'"></div>').appendTo('.carousel-inner');
-		            } 
-		        });
-		    }
-		});
+		
+        $('<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>').appendTo('.carousel-indicators');
+		$('<div class="carousel-item"><img src="'+ folder +'"></div>').appendTo('.carousel-inner');
+		
 
-
-		//$('.carousel-inner').html('');
-		//$('.carousel-indicators').html('');
+		
 		$('#carouselExampleIndicators').carousel();
 		
-		/*console.log(m.length);
-	  	for(var i=0 ; i<m.length ; i++) {
-	  		var filename = url+testFolder+m[i]
-	  		console.log('filename is:'+filename)
-	  		$('<li data-target="#carouselExampleIndicators" data-slide-to="'+i+'"></li>').appendTo('.carousel-indicators');
-			$('<div class="carousel-item"><img src="'+filename+'"></div>').appendTo('.carousel-inner');
-		//	$('.carousel-inner').innerHTML = '<div class="item"><img src="'+filename+'"><div class="carousel-caption"></div>   </div>';
-		    
-		//	$('.carousel-indicators').innerHTML = '<li data-target="#carousel-example-generic" data-slide-to="'+i+'"></li>';
-		}*/
 		
-	   
 
 		$('.carousel-item').eq(0).addClass('active');
 		$('.carousel-indicators > li').eq(0).addClass('active');
@@ -352,7 +270,7 @@ $('.data').on("click", function(e){
 
 d3.select('#reset').on('click', function(){
 
-	window.location.assign("http://localhost:3000/");
+	window.location.assign("https://ubc-haptipedia.github.io/");
 	
 	
 });
