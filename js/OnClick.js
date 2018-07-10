@@ -274,13 +274,35 @@ $('.data').on("click", function(e){
 		var folder = 'https://ubc-haptipedia.github.io/' + String(d3.select(this).data().map(function(d){return d.Device}));
 		$('.carousel-inner').html('');
 		$('.carousel-indicators').html('');
-
 		
+		// Check if url exists or not
+		function isUrlExists(url, cb){
+		    jQuery.ajax({
+			url:      url,
+			dataType: 'text',
+			type:     'GET',
+			complete:  function(xhr){
+			    if(typeof cb === 'function')
+			       cb.apply(this, [xhr.status]);
+			}
+		    });
+		}
+
+		console.log('test-1');
         	for(var i=1; i<16; i++){
 
 			var filename = folder + '/Figure' + i + '-1.png';
+			var found = false;
+			isUrlExists('URL', function(status){
+			    if(status === 200){
+			       found = true;
+			    }
+			    else if(status === 404){
+			       found = false;
+			    }
+			});
 
-			if(filename){
+			if(found){
 	        	$('<li data-target="#carouselExampleIndicators" data-slide-to=" '+ i +' "></li>').appendTo('.carousel-indicators');
 				$('<div class="carousel-item"><img src="'+ filename +'"></div>').appendTo('.carousel-inner');
 			}
