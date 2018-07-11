@@ -371,7 +371,7 @@ d3.select('#undo').on('click', function(){
 });
 
 //Definitions
-
+console.log('hover over portability');
 var mouseX;
 	var mouseY;
 	$(document).mousemove( function(e) {
@@ -383,36 +383,36 @@ var mouseX;
 
 	//Portability
 
-	$('.body').on('mouseover', '.portability-label', function(){
-		console.log('hover over portability');
+	$('body').on('mouseover', '.portability-label', function(){
+		
 		$('.portability-def').show();
 	})
 
 
-	$('.body').on('mousemove', '.portability-label', function(){
+	$('body').on('mousemove', '.portability-label', function(){
 	      $('.portability-def').css({'top':mouseY,'left':mouseX + 30});   
 	}); 
 
 
-	$('.body').on('mouseout', '.portability-label', function(){
+	$('body').on('mouseout', '.portability-label', function(){
 
 		$('.portability-def').hide();
 	});
 
 	//Robustness
 
-	$('.body').on('mouseover', '.robustness-label', function(){
+	$('body').on('mouseover', '.robustness-label', function(){
 
 		$('.robustness-def').show();
 	})
 
 
-	$('.body').on('mousemove', '.robustness-label', function(){
+	$('body').on('mousemove', '.robustness-label', function(){
 	      $('.robustness-def').css({'top':mouseY,'left':mouseX + 30});   
 	}); 
 
 
-	$('.body').on('mouseout', '.robustness-label', function(){
+	$('body').on('mouseout', '.robustness-label', function(){
 
 		$('.robustness-def').hide();
 	});
@@ -420,54 +420,54 @@ var mouseX;
 
 	//Fabricability
 
-	$('.body').on('mouseover', '.fabricability-label', function(){
+	$('body').on('mouseover', '.fabricability-label', function(){
 
 		$('.fabricability-def').show();
 	})
 
 
-	$('.body').on('mousemove', '.fabricability-label', function(){
+	$('body').on('mousemove', '.fabricability-label', function(){
 	      $('.fabricability-def').css({'top':mouseY,'left':mouseX + 30});   
 	}); 
 
 
-	$('.body').on('mouseout', '.fabricability-label', function(){
+	$('body').on('mouseout', '.fabricability-label', function(){
 
 		$('.fabricability-def').hide();
 	});
 
 	//Obtainability
 
-	$('.body').on('mouseover', '.obtainability-label', function(){
+	$('body').on('mouseover', '.obtainability-label', function(){
 		$('.obtainability-def').show();
 	})
 
 
-	$('.body').on('mousemove', '.obtainability-label', function(){
+	$('body').on('mousemove', '.obtainability-label', function(){
 	      $('.obtainability-def').css({'top':mouseY,'left':mouseX + 30});   
 	}); 
 
 
-	$('.body').on('mouseout', '.obtainability-label', function(){
+	$('body').on('mouseout', '.obtainability-label', function(){
 
 		$('.obtainability-def').hide();
 	});
 
 	//Repairability
 
-	$('.body').on('mouseover', '.repairability-label', function(){
+	$('body').on('mouseover', '.repairability-label', function(){
 
 		$('.repairability-def').show();
 	})
 
 
-	$('.body').on('mousemove', '.repairability-label', function(){
+	$('body').on('mousemove', '.repairability-label', function(){
 
 	      $('.repairability-def').css({'top':mouseY,'left':mouseX + 30});   
 	}); 
 
 
-	$('.body').on('mouseout', '.repairability-label', function(){
+	$('body').on('mouseout', '.repairability-label', function(){
 
 
 		$('.repairability-def').hide();
